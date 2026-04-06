@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-background: #f9f9f9;
+  --color-primary: #1A1A1A;
+  --color-surface-low: #f3f3f3;
+  --color-surface-white: #ffffff;
+
+  /* Custom 20-column grid system */
+  --grid-template-columns-20: repeat(20, minmax(0, 1fr));
+
+  /* Extended col-end values beyond Tailwind's default (13) */
+  --grid-column-end-14: 14;
+  --grid-column-end-15: 15;
+  --grid-column-end-16: 16;
+  --grid-column-end-17: 17;
+  --grid-column-end-18: 18;
+  --grid-column-end-19: 19;
+  --grid-column-end-20: 20;
+  --grid-column-end-21: 21;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-primary font-sans antialiased selection:bg-primary selection:text-white;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  /* Cinematic Container: Fluid proportions, No Fixed Caps */
+  .cinematic-container {
+    @apply w-full px-[6vw];
+  }
+
+  /* The Scale of Prestige (Noto Serif style) */
+  .text-display-lg {
+    @apply font-serif text-[clamp(4rem,10vw,16rem)] leading-[0.85] tracking-[-0.03em] font-normal;
+  }
+
+  .text-display-xl {
+    @apply font-serif text-[clamp(5rem,14vw,22rem)] leading-[0.8] tracking-[-0.04em] font-normal;
+  }
+
+  /* Functional Precision (Inter style) */
+  .text-prestige-label {
+    @apply text-[clamp(10px,0.75vw,14px)] uppercase tracking-[0.4em] font-sans font-bold opacity-60;
+  }
+
+  .text-editorial-body {
+    @apply font-sans font-light text-[clamp(1rem,1.2vw,1.25rem)] leading-[1.8] opacity-70;
+  }
+
+  /* Atmospheric Spacing (64px increments) */
+  .py-editorial {
+    @apply py-[clamp(4rem,8vw,12rem)];
+  }
+  
+  .mt-editorial {
+    @apply mt-[clamp(4rem,8vw,12rem)];
+  }
+
+  .cinematic-shadow {
+    box-shadow: 0 40px 100px -20px rgba(0,0,0,0.06);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Restoration of Sharp Edges (Strict rule) */
+  .rounded-none-important {
+    border-radius: 0px !important;
+  }
+
+  .transition-cinematic {
+    transition: all 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+/* Texture overlay */
+.grain-overlay {
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
