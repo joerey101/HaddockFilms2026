@@ -68,7 +68,8 @@ const CatalogueScene = () => {
             <div className="aspect-[2/3] overflow-hidden bg-[#e8e8e8]">
               <img
                 src={film.image}
-                alt={film.title}
+                alt={`Afiche de ${film.title} (${film.year})`}
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
               />
             </div>

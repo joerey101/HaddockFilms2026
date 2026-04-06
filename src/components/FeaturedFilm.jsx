@@ -21,7 +21,8 @@ const FeaturedFilm = ({ id, image, title, year, director, description, layout = 
           <div className="aspect-[16/10] overflow-hidden bg-surface-container">
             <img
               src={image}
-              alt={title}
+              alt={`${title} (${year}) — ${director}`}
+            loading="eager"
               className="w-full h-full object-cover"
             />
           </div>
