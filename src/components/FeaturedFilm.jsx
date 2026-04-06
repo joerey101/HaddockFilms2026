@@ -1,21 +1,15 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const FeaturedFilm = ({ id, image, title, year, director, description, layout = 'left' }) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
-
   const isLeft = layout === 'left';
 
   return (
     <motion.section
-      ref={ref}
-      style={{ opacity }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true, margin: "-80px" }}
       className="w-full py-[clamp(4rem,6vw,8rem)] px-[6vw]"
     >
       <div className={`grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center ${
