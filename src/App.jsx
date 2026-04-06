@@ -56,10 +56,10 @@ function App() {
         {/* Título partido: blanco arriba / negro abajo */}
         <div className="w-full" style={{ background: 'linear-gradient(to bottom, #f9f9f9 50%, #1A1A1A 50%)' }}>
           <div className="flex flex-col items-center text-center leading-[0.85]">
-            <span className="font-serif text-[clamp(5rem,14vw,22rem)] tracking-[-0.03em] text-primary block">
+            <span className="font-serif text-[clamp(2rem,10vw,22rem)] tracking-[-0.03em] text-primary block">
               Historias que
             </span>
-            <span className="font-serif text-[clamp(5rem,14vw,22rem)] tracking-[-0.03em] text-white italic block">
+            <span className="font-serif text-[clamp(2rem,10vw,22rem)] tracking-[-0.03em] text-white italic block">
               trascienden.
             </span>
           </div>
