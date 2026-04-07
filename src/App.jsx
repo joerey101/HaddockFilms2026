@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroVideo from './components/HeroVideo';
 import FeaturedFilm from './components/FeaturedFilm';
 import CatalogueScene from './components/CatalogueScene';
+import ServiciosSection from './components/ServiciosSection';
 import './index.css';
 
 function App() {
+  const [filtro, setFiltro] = useState('Todos');
+
+  const irACatalogo = (tipo) => {
+    setFiltro(tipo);
+    setTimeout(() => {
+      document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' });
+    }, 50);
+  };
+
   return (
     <main className="bg-background relative text-primary selection:bg-primary selection:text-white no-scrollbar font-sans overflow-x-hidden">
-      <Navbar />
+      <Navbar irACatalogo={irACatalogo} />
       
       {/* Hero with video */}
       <HeroVideo />
@@ -47,7 +57,10 @@ function App() {
         />
 
         {/* Fluid Editorial Narrative Catalogue */}
-        <CatalogueScene />
+        <CatalogueScene filtro={filtro} setFiltro={setFiltro} />
+
+        {/* Servicios */}
+        <ServiciosSection />
       </div>
 
       {/* Footer */}
