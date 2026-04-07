@@ -1,84 +1,68 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const FeaturedFilm = ({ id, image, title, year, director, description, layout = 'left' }) => {
-  const isLeft = layout === 'left';
-
-  const label = (
-    <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-secondary">
-      — {year} &nbsp;·&nbsp; {director}
-    </span>
-  );
-
-  const heading = (
-    <h2 className="font-serif text-[clamp(2.2rem,3.5vw,4.5rem)] leading-[1.0] tracking-tight text-primary">
-      {title}
-    </h2>
-  );
-
-  const body = description && (
-    <p className="font-sans font-light text-[clamp(0.9rem,1vw,1.1rem)] leading-relaxed text-secondary max-w-sm">
-      {description}
-    </p>
-  );
-
-  const cta = (
-    <a href="#" className="inline-flex items-center gap-4 group">
-      <span className="text-[11px] font-sans uppercase tracking-[0.2em] font-bold border-b border-primary pb-0.5">
-        Ver más
-      </span>
-    </a>
-  );
-
+const FeaturedFilm = ({ index, title, year, director, description, image, tag, reverse }) => {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-      viewport={{ once: true, margin: "-80px" }}
-      className="w-full py-[clamp(2rem,4vw,8rem)] px-[6vw]"
-    >
-      {/* Mobile layout */}
-      <div className="flex flex-col gap-4 md:hidden">
-        <div className="flex flex-col gap-2">
-          {label}
-          {heading}
-        </div>
-        <div className="aspect-[16/10] overflow-hidden">
-          <img
-            src={image}
-            alt={`${title} (${year}) — ${director}`}
-            loading="eager"
-            className="w-full h-full object-cover"
+    <div className={`flex flex-col ${reverse ? 'md:items-end' : 'md:items-start'} px-[6vw] relative`}>
+      {/* Index Watermark */}
+      <motion.span
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.04 }}
+        transition={{ duration: 1.5 }}
+        className="absolute -top-20 md:-top-32 font-display text-[20vw] leading-none pointer-events-none select-none text-primary"
+      >
+        {index}
+      </motion.span>
+
+      {/* Main Content Layout */}
+      <div className={`flex flex-col md:flex-row gap-12 md:gap-24 items-center ${reverse ? 'md:flex-row-reverse' : ''}`}>
+        
+        {/* Image Display */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+          className="w-full md:w-[60%] aspect-video overflow-hidden bg-surface group"
+        >
+          <img 
+            src={image} 
+            alt={title} 
+            className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105"
           />
-        </div>
-        <div className="flex flex-col gap-2">
-          {body}
-          {cta}
-        </div>
-      </div>
+        </motion.div>
 
-      {/* Desktop layout */}
-      <div className={`hidden md:grid md:grid-cols-12 gap-16 items-center ${isLeft ? '' : 'md:[direction:rtl]'}`}>
-        <div className="md:col-span-7 [direction:ltr]">
-          <div className="aspect-[16/10] overflow-hidden">
-            <img
-              src={image}
-              alt={`${title} (${year}) — ${director}`}
-              loading="eager"
-              className="w-full h-full object-cover"
-            />
+        {/* Text Info */}
+        <div className="w-full md:w-[35%] flex flex-col gap-6 relative z-10">
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] font-sans tracking-[0.4em] uppercase text-accent font-bold">
+              {tag}
+            </span>
+            <h2 className="font-serif italic text-[clamp(2.5rem,5vw,5rem)] leading-[1.1] text-primary">
+              {title}
+            </h2>
+            <div className="flex items-center gap-3 opacity-40">
+              <span className="text-[10px] font-sans tracking-[0.2em] uppercase">{year}</span>
+              <span className="w-4 h-[1px] bg-primary" />
+              <span className="text-[10px] font-sans tracking-[0.2em] uppercase">{director}</span>
+            </div>
           </div>
-        </div>
-        <div className="md:col-span-5 [direction:ltr] flex flex-col gap-6">
-          {label}
-          {heading}
-          {body}
-          <div className="pt-4">{cta}</div>
-        </div>
-      </div>
 
-    </motion.section>
+          <p className="font-sans font-light text-[14px] leading-relaxed text-primary/60 max-w-[45ch]">
+            {description}
+          </p>
+
+          <motion.button
+            whileHover={{ x: 10 }}
+            className="flex items-center gap-4 text-[10px] tracking-[0.4em] uppercase text-primary/80 group mt-4 w-fit"
+          >
+            VER PROYECTO
+            <span className="w-8 h-[1px] bg-accent group-hover:w-12 transition-all" />
+          </motion.button>
+        </div>
+
+      </div>
+    </div>
   );
 };
 
