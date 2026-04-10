@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const FeaturedFilm = ({ id, image, title, year, director, description, layout = 'left' }) => {
+const FeaturedFilm = ({ id, image, title, year, director, description, layout = 'left', onClick }) => {
   const isLeft = layout === 'left';
 
   const label = (
@@ -23,11 +23,14 @@ const FeaturedFilm = ({ id, image, title, year, director, description, layout = 
   );
 
   const cta = (
-    <a href="#" className="inline-flex items-center gap-4 group">
+    <button 
+      onClick={onClick}
+      className="inline-flex items-center gap-4 group cursor-pointer border-none bg-transparent p-0"
+    >
       <span className="text-[11px] font-sans uppercase tracking-[0.2em] font-bold border-b border-primary pb-0.5">
         Ver más
       </span>
-    </a>
+    </button>
   );
 
   return (
@@ -44,7 +47,7 @@ const FeaturedFilm = ({ id, image, title, year, director, description, layout = 
           {label}
           {heading}
         </div>
-        <div className="aspect-[16/10] overflow-hidden">
+        <div className="aspect-[16/10] overflow-hidden cursor-pointer" onClick={onClick}>
           <img
             src={image}
             alt={`${title} (${year}) — ${director}`}
@@ -61,7 +64,7 @@ const FeaturedFilm = ({ id, image, title, year, director, description, layout = 
       {/* Desktop layout */}
       <div className={`hidden md:grid md:grid-cols-12 gap-16 items-center ${isLeft ? '' : 'md:[direction:rtl]'}`}>
         <div className="md:col-span-7 [direction:ltr]">
-          <div className="aspect-[16/10] overflow-hidden">
+          <div className="aspect-[16/10] overflow-hidden cursor-pointer" onClick={onClick}>
             <img
               src={image}
               alt={`${title} (${year}) — ${director}`}

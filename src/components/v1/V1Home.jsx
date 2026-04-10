@@ -5,7 +5,7 @@ import FeaturedFilm from './FeaturedFilm';
 import CatalogueScene from './CatalogueScene';
 import ServiciosSection from './ServiciosSection';
 
-const V1Home = ({ version, toggleVersion }) => {
+const V1Home = ({ version, toggleVersion, onNavigate }) => {
   const [filtro, setFiltro] = useState('Todos');
 
   const irACatalogo = (tipo) => {
@@ -48,6 +48,7 @@ const V1Home = ({ version, toggleVersion }) => {
           image="/assets/Atrapados-Haddock-Films-1.webp"
           description="Serie original para Netflix. Ocho presos quedan atrapados en una cárcel inundada y deben sobrevivir juntos, con sus secretos y sus diferencias."
           layout="right"
+          onClick={() => onNavigate(25)}
         />
 
         <FeaturedFilm
@@ -61,7 +62,7 @@ const V1Home = ({ version, toggleVersion }) => {
         />
 
         {/* Fluid Editorial Narrative Catalogue */}
-        <CatalogueScene filtro={filtro} setFiltro={setFiltro} />
+        <CatalogueScene filtro={filtro} setFiltro={setFiltro} onNavigate={onNavigate} />
 
         {/* Servicios */}
         <ServiciosSection />

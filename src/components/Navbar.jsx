@@ -33,7 +33,7 @@ const Navbar = ({ version, toggleVersion }) => {
       
       <div className="flex items-center justify-between px-[6vw] py-6">
         {/* Logo */}
-        <a href="/" className="block">
+        <a href="/v2" className="block">
           <img 
             src="/assets/LOGO-HADDOCK-black-1.svg" 
             alt="Haddock Films" 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const FeaturedFilm = ({ index, title, year, director, description, image, tag, reverse }) => {
+const FeaturedFilm = ({ index, title, year, director, description, image, tag, reverse, onClick }) => {
   return (
     <div className={`flex flex-col ${reverse ? 'md:items-end' : 'md:items-start'} px-[6vw] relative`}>
       {/* Index Watermark */}
@@ -23,7 +23,8 @@ const FeaturedFilm = ({ index, title, year, director, description, image, tag, r
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="w-full md:w-[60%] aspect-video overflow-hidden bg-surface group"
+          className="w-full md:w-[60%] aspect-video overflow-hidden bg-surface group cursor-pointer"
+          onClick={onClick}
         >
           <img 
             src={image} 
@@ -54,6 +55,7 @@ const FeaturedFilm = ({ index, title, year, director, description, image, tag, r
 
           <motion.button
             whileHover={{ x: 10 }}
+            onClick={onClick}
             className="flex items-center gap-4 text-[10px] tracking-[0.4em] uppercase text-primary/80 group mt-4 w-fit"
           >
             VER PROYECTO

@@ -7,7 +7,7 @@ import CatalogueScene from './CatalogueScene';
 import ServiciosSection from './ServiciosSection';
 import Footer from './Footer';
 
-const V2Home = ({ filtro, setFiltro, version, toggleVersion }) => {
+const V2Home = ({ filtro, setFiltro, version, toggleVersion, onNavigate }) => {
   return (
     <div className="bg-background text-primary selection:bg-accent selection:text-black min-h-screen relative overflow-x-hidden">
       {/* Film Grain Global Overlay */}
@@ -39,6 +39,7 @@ const V2Home = ({ filtro, setFiltro, version, toggleVersion }) => {
             image="/assets/Atrapados-Haddock-Films-1.webp"
             tag="Serie Netflix"
             reverse
+            onClick={() => onNavigate(25)}
           />
           <FeaturedFilm 
             index="03"
@@ -51,7 +52,7 @@ const V2Home = ({ filtro, setFiltro, version, toggleVersion }) => {
           />
         </section>
 
-        <CatalogueScene filtro={filtro} setFiltro={setFiltro} />
+        <CatalogueScene filtro={filtro} setFiltro={setFiltro} onNavigate={onNavigate} />
         <ServiciosSection />
       </main>
 

@@ -23,7 +23,10 @@ const Navbar = ({ irACatalogo, version, toggleVersion }) => {
 
       <nav className="fixed top-0 left-0 w-full z-[60] flex justify-between items-center px-[6vw] py-5 pointer-events-none bg-primary">
         {/* Logo */}
-        <div className="pointer-events-auto cursor-pointer">
+        <div 
+          className="pointer-events-auto cursor-pointer"
+          onClick={() => irACatalogo && irACatalogo('Todos')}
+        >
           <img
             src="/assets/LOGO-HADDOCK-black-1.svg"
             alt="Haddock Films"
@@ -53,7 +56,7 @@ const Navbar = ({ irACatalogo, version, toggleVersion }) => {
             onClick={toggleVersion}
             className="hover:opacity-40 transition-opacity cursor-pointer font-bold"
           >
-            VERSIÓN 2
+            {version === 'v1' ? 'V2' : 'V1'}
           </button>
         </div>
 
