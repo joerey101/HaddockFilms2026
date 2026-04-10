@@ -33,13 +33,17 @@ const FichaRow = ({ label, value }) => {
 };
 
 // ─── COMPONENTE PRINCIPAL ─────────────────────────────────────────────────────
-const FilmPageV1 = ({ version, toggleVersion }) => {
+const FilmPageV1 = ({ version, toggleVersion, filmId }) => {
   const { id, slug } = useParams();
   const navigate = useNavigate();
   const [trailerActivo, setTrailerActivo] = useState(false);
 
-  // Intentamos encontrar por slug o ID
-  const film = filmsData.find(f => f.slug === slug || f.id === parseInt(id)) || filmsData[0];
+  // Intentamos encontrar por prop, slug o ID
+  const film = filmsData.find(f => 
+    f.id === filmId || 
+    f.slug === slug || 
+    f.id === parseInt(id)
+  ) || filmsData[0];
   
   const filmIndex = filmsData.findIndex(f => f.id === film.id);
   const anterior  = filmsData[filmIndex + 1] || null;
@@ -208,10 +212,11 @@ const FilmPageV1 = ({ version, toggleVersion }) => {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           style={{ display: 'flex', flexDirection: 'column', gap: '2rem', paddingTop: '0.5rem' }}
         >
-          {/* Tráiler */}
-          <div>
-            <span style={{ ...micro, display: 'block', marginBottom: '0.6rem' }}>Tráiler oficial</span>
-            <div style={{ ...rule, marginBottom: '0.75rem' }} />
+          {/* Tráiler (Solo si existe URL) */}
+          {film.trailer && (
+            <div>
+              <span style={{ ...micro, display: 'block', marginBottom: '0.6rem' }}>Tráiler oficial</span>
+              <div style={{ ...rule, marginBottom: '0.75rem' }} />
             <div
               style={{ aspectRatio: '16/9', background: '#111', overflow: 'hidden', position: 'relative', cursor: 'pointer' }}
               onClick={() => setTrailerActivo(true)}
@@ -250,7 +255,7 @@ const FilmPageV1 = ({ version, toggleVersion }) => {
                 </>
               )}
             </div>
-          </div>
+          )}
 
           {/* Sinopsis */}
           <div>

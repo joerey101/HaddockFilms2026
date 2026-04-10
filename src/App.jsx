@@ -59,6 +59,7 @@ function App() {
         } />
         <Route path="atrapados" element={
           <FilmPageV1 
+            filmId={25}
             version="v1" 
             toggleVersion={toggleVersion}
           />
