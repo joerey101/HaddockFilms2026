@@ -255,7 +255,8 @@ const FilmPageV1 = ({ version, toggleVersion, filmId }) => {
                 </>
               )}
             </div>
-          )}
+          </div>
+        )}
 
           {/* Sinopsis */}
           <div>
