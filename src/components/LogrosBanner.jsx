@@ -10,9 +10,9 @@ const LogrosBanner = () => {
   ];
 
   return (
-    <section className="w-full bg-[#1A1A1A] border-y border-primary/10">
-      <div className="px-[6vw] py-10">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-4">
+    <section className="w-full bg-background border-y border-primary/5">
+      <div className="px-[6vw] py-12 md:py-16">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-10 md:gap-4">
           {achievements.map((item, idx) => (
             <React.Fragment key={idx}>
               <motion.div
@@ -22,12 +22,12 @@ const LogrosBanner = () => {
                 viewport={{ once: true }}
                 className="flex-1 flex justify-center text-center"
               >
-                <span className={`text-[10px] font-sans font-normal tracking-[0.4em] uppercase leading-relaxed ${item.accent ? 'text-accent opacity-100' : 'text-primary opacity-80'}`}>
+                <span className={`text-[10px] md:text-[11px] font-sans font-medium tracking-[0.4em] uppercase leading-relaxed ${item.accent ? 'text-primary opacity-100' : 'text-primary/40'}`}>
                   {item.text}
                 </span>
               </motion.div>
               {idx < achievements.length - 1 && (
-                <div className="hidden md:block w-px h-4 bg-primary/20" />
+                <div className="hidden md:block w-px h-4 bg-primary/10" />
               )}
             </React.Fragment>
           ))}

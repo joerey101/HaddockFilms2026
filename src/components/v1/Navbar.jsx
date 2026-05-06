@@ -56,15 +56,6 @@ const Navbar = ({ irACatalogo, version, toggleVersion }) => {
             SERVICIOS
           </button>
           <a href="#" className="hover:opacity-40 transition-opacity">CONTACTO</a>
-          
-          <div className="w-px h-3 bg-white/20 self-center" />
-          
-          <button 
-            onClick={toggleVersion}
-            className="hover:opacity-40 transition-opacity cursor-pointer font-bold"
-          >
-            {version === 'v1' ? 'V2' : 'V1'}
-          </button>
         </div>
 
         {/* Hamburger — Mobile */}
@@ -118,15 +109,6 @@ const Navbar = ({ irACatalogo, version, toggleVersion }) => {
                 {label}
               </motion.button>
             ))}
-
-            <div className="h-px bg-white/10 my-2" />
-
-            <button
-              onClick={() => { toggleVersion(); setMenuOpen(false); }}
-              className="text-left text-[11px] font-sans font-bold tracking-[0.35em] text-white/60 hover:text-white uppercase cursor-pointer transition-colors"
-            >
-              {version === 'v1' ? '→ VERSIÓN INDUSTRIAL' : '→ VERSIÓN EDITORIAL'}
-            </button>
           </motion.div>
         )}
       </AnimatePresence>

@@ -4,8 +4,9 @@ import HeroVideo from './HeroVideo';
 import FeaturedFilm from './FeaturedFilm';
 import CatalogueScene from './CatalogueScene';
 import ServiciosSection from './ServiciosSection';
+import LogrosBanner from '../LogrosBanner';
 
-const V1Home = ({ version, toggleVersion, onNavigate }) => {
+const V1Home = ({ version, onNavigate }) => {
   const [filtro, setFiltro] = useState('Todos');
 
   const irACatalogo = (tipo) => {
@@ -22,10 +23,12 @@ const V1Home = ({ version, toggleVersion, onNavigate }) => {
 
   return (
     <div className="bg-background relative text-primary selection:bg-primary selection:text-white no-scrollbar font-sans overflow-x-hidden min-h-screen">
-      <Navbar irACatalogo={irACatalogo} version={version} toggleVersion={toggleVersion} />
+      <Navbar irACatalogo={irACatalogo} version={version} />
       
       {/* Hero with video */}
       <HeroVideo />
+
+      <LogrosBanner />
 
       {/* Main Narrative Sections: High Z-index with Fluid Tension */}
       <div className="relative z-20 bg-background">
@@ -38,6 +41,7 @@ const V1Home = ({ version, toggleVersion, onNavigate }) => {
           image="/assets/Tiempo-Moscas-main.jpg"
           description="El estreno más reciente de Haddock Films. Un relato que habita los bordes del horror y la literatura argentina contemporánea."
           layout="left"
+          onClick={() => onNavigate('el-tiempo-de-las-moscas')}
         />
 
         <FeaturedFilm
@@ -48,7 +52,7 @@ const V1Home = ({ version, toggleVersion, onNavigate }) => {
           image="/assets/Atrapados-Haddock-Films-1.webp"
           description="Serie original para Netflix. Ocho presos quedan atrapados en una cárcel inundada y deben sobrevivir juntos, con sus secretos y sus diferencias."
           layout="right"
-          onClick={() => onNavigate(25)}
+          onClick={() => onNavigate('atrapados')}
         />
 
         <FeaturedFilm
@@ -59,6 +63,7 @@ const V1Home = ({ version, toggleVersion, onNavigate }) => {
           image="/assets/ES_ELENA_RGB_VERTICAL_main.jpg"
           description="Basada en la novela de Claudia Piñeiro. Una madre con Parkinson busca justicia por la muerte de su hija en una Argentina que no da respuestas."
           layout="left"
+          onClick={() => onNavigate('elena-sabe')}
         />
 
         {/* Fluid Editorial Narrative Catalogue */}

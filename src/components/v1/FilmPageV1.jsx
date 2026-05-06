@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 import { filmsData } from '../../data/filmsData';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Navigate } from 'react-router-dom';
 
 // ─── FICHA ROW ────────────────────────────────────────────────────────────────
 const FichaRow = ({ label, value }) => {
@@ -33,16 +33,16 @@ const FichaRow = ({ label, value }) => {
 };
 
 // ─── COMPONENTE PRINCIPAL ─────────────────────────────────────────────────────
-const FilmPageV1 = ({ version, toggleVersion, filmId }) => {
-  const { id, slug } = useParams();
+const FilmPageV1 = ({ version, toggleVersion }) => {
+  const { slug } = useParams();
   const navigate = useNavigate();
   const [trailerActivo, setTrailerActivo] = useState(false);
 
-  const film = filmsData.find(f =>
-    f.id === filmId ||
-    f.slug === slug ||
-    f.id === parseInt(id)
-  ) || filmsData[0];
+  const film = filmsData.find(f => f.slug === slug);
+
+  if (!film) {
+    return <Navigate to="/v1" replace />;
+  }
 
   const filmIndex = filmsData.findIndex(f => f.id === film.id);
   const anterior  = filmsData[filmIndex + 1] || null;
@@ -370,6 +370,43 @@ const FilmPageV1 = ({ version, toggleVersion, filmId }) => {
         </div>
       </motion.div>
 
+      {/* ── RECONOCIMIENTOS ── */}
+      {film.reconocimientos && film.reconocimientos.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+          style={{ padding: `0 ${px}`, marginBottom: 'clamp(3rem,5vw,5rem)' }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '1.75rem' }}>
+            <span style={{ ...micro, fontSize: 'clamp(16px,4vw,22px)', fontWeight: 700, opacity: 0.8, whiteSpace: 'nowrap' }}>Reconocimientos</span>
+            <div style={{ ...rule, flex: 1 }} />
+          </div>
+          <ul style={{ 
+            listStyle: 'none', 
+            padding: 0, 
+            margin: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.5rem'
+          }}>
+            {film.reconocimientos.map((premio, i) => (
+              <li key={i} style={{ 
+                fontFamily: 'var(--font-serif)', 
+                fontSize: '14px', 
+                fontStyle: 'italic',
+                opacity: 0.7,
+                paddingBottom: '0.5rem',
+                borderBottom: '0.5px solid rgba(26,26,26,0.05)'
+              }}>
+                {premio}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      )}
+
       {/* ── ELENCO ── */}
       {film.protagonistas && film.protagonistas.length > 0 && (
         <motion.div
@@ -439,7 +476,7 @@ const FilmPageV1 = ({ version, toggleVersion, filmId }) => {
           <motion.button
             whileHover={{ x: -4 }}
             transition={{ duration: 0.3 }}
-            onClick={() => navigate(`/v1/film/${anterior.slug || anterior.id}`)}
+            onClick={() => navigate(`/v1/${anterior.slug}`)}
             style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left', opacity: 0.5 }}
           >
             <span style={{ ...micro, display: 'block', marginBottom: '3px' }}>← Anterior</span>
@@ -458,7 +495,7 @@ const FilmPageV1 = ({ version, toggleVersion, filmId }) => {
           <motion.button
             whileHover={{ x: 4 }}
             transition={{ duration: 0.3 }}
-            onClick={() => navigate(`/v1/film/${siguiente.slug || siguiente.id}`)}
+            onClick={() => navigate(`/v1/${siguiente.slug}`)}
             style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'right', opacity: 0.5 }}
           >
             <span style={{ ...micro, display: 'block', marginBottom: '3px' }}>Siguiente →</span>

@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "haddock-dev",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "/opt/homebrew/bin/node",
+      "runtimeArgs": ["/Users/joserey/Documents/@Trabajo/Material Haddock/haddock-storyboard/node_modules/.bin/vite", "--port", "5173"],
       "port": 5173
     }
   ]

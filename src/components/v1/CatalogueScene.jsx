@@ -58,7 +58,7 @@ const CatalogueScene = ({ filtro, setFiltro, onNavigate }) => {
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8"
         >
           {filmsFiltrados.map((film, idx) => {
-            const isClickable = film.id === 25;
+            const isClickable = true;
             return (
               <motion.div
                 key={film.id}
@@ -68,7 +68,7 @@ const CatalogueScene = ({ filtro, setFiltro, onNavigate }) => {
                 exit={{ opacity: 0, y: 10 }}
                 transition={{ duration: 0.4, delay: (idx % 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
                 className={`flex flex-col gap-3 group ${isClickable ? 'cursor-pointer' : 'cursor-default'}`}
-                onClick={() => isClickable && onNavigate && onNavigate(film.id)}
+                onClick={() => isClickable && onNavigate && onNavigate(film.slug)}
               >
                 {/* Poster 2:3 */}
                 <div className="aspect-[2/3] overflow-hidden bg-[#e8e8e8] relative">
