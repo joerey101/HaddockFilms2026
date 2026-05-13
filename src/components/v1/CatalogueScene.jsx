@@ -1,14 +1,18 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { filmsData } from '../../data/filmsData';
+import { films as filmsData } from '../../data/filmsData';
 
-const FILTROS = ['Todos', 'Película', 'Serie', 'Documental'];
+const FILTROS = ['Todos', 'Película', 'Serie'];
 
 const CatalogueScene = ({ filtro, setFiltro, onNavigate }) => {
 
   const filmsFiltrados = filtro === 'Todos'
     ? filmsData
-    : filmsData.filter(f => f.tipo.includes(filtro));
+    : filmsData.filter(f => {
+        if (filtro === 'Película') return f.type === 'pelicula';
+        if (filtro === 'Serie') return f.type === 'serie';
+        return true;
+      });
 
   return (
     <section id="catalogo" className="w-full py-[clamp(4rem,6vw,8rem)] px-[6vw] bg-background">
@@ -44,7 +48,7 @@ const CatalogueScene = ({ filtro, setFiltro, onNavigate }) => {
                     : 'bg-transparent text-primary/50 border-primary/20 hover:border-primary/50 hover:text-primary'
                 }`}
               >
-                {f === 'Todos' ? 'Todos' : f === 'Película' ? 'Películas' : f === 'Serie' ? 'Series' : 'Documentales'}
+                {f === 'Todos' ? 'Todos' : f === 'Película' ? 'Películas' : 'Series'}
               </button>
             ))}
           </div>
@@ -73,15 +77,15 @@ const CatalogueScene = ({ filtro, setFiltro, onNavigate }) => {
                 {/* Poster 2:3 */}
                 <div className="aspect-[2/3] overflow-hidden bg-[#e8e8e8] relative">
                   <img
-                    src={film.poster}
+                    src={film.poster.local_path}
                     alt={`Afiche de ${film.title} (${film.year})`}
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                   />
                   {/* Badge tipo */}
-                  {film.tipo !== 'Película' && (
+                  {film.type === 'serie' && (
                     <span className="absolute top-2 left-2 text-[9px] font-sans uppercase tracking-[0.2em] bg-primary text-white px-2 py-1">
-                      {film.tipo}
+                      Serie
                     </span>
                   )}
                 </div>

@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { filmsData } from '../data/filmsData';
+import { films as filmsData } from '../data/filmsData';
+
+const formatArray = (arr) => Array.isArray(arr) ? arr.join(', ') : arr;
 
 // ─── COMPONENTS ──────────────────────────────────────────────────────────────
 
@@ -22,7 +24,7 @@ const TechItem = ({ label, value }) => {
 
 const FilmPageV2 = ({ filmId, onBack, version, toggleVersion }) => {
   const [trailerOpen, setTrailerOpen] = useState(false);
-  const film = filmsData.find(f => f.id === filmId) || filmsData[0];
+  const film = filmsData.find(f => f.slug === filmId || f.id === filmId) || filmsData[0];
 
   return (
     <div className="bg-background text-primary min-h-screen selection:bg-accent selection:text-black">
@@ -41,7 +43,7 @@ const FilmPageV2 = ({ filmId, onBack, version, toggleVersion }) => {
             className="absolute inset-0"
           >
             <img
-              src={film.heroImage}
+              src={film.stills?.[0]?.local_path || film.poster.local_path}
               alt={film.title}
               className="w-full h-full object-cover grayscale opacity-60"
             />
@@ -58,7 +60,7 @@ const FilmPageV2 = ({ filmId, onBack, version, toggleVersion }) => {
             >
               <div className="flex items-center gap-3 flex-wrap">
                 <span className="text-[10px] font-sans tracking-[0.4em] uppercase text-accent font-bold">
-                  {film.tipo} / {film.year}
+                  {film.type === 'pelicula' ? 'Película' : 'Serie'} / {film.year}
                 </span>
                 {film.plataforma && (
                   <>
@@ -74,9 +76,9 @@ const FilmPageV2 = ({ filmId, onBack, version, toggleVersion }) => {
                 {film.title}
               </h1>
 
-              {film.basadaEn && (
+              {film.adaptation && (
                 <p className="text-[11px] font-sans tracking-[0.2em] uppercase text-primary/40 font-light">
-                  Basada en {film.basadaEn}
+                  Adaptación: {film.adaptation}
                 </p>
               )}
             </motion.div>
@@ -103,8 +105,8 @@ const FilmPageV2 = ({ filmId, onBack, version, toggleVersion }) => {
                 </button>
               )}
 
-              {film.imdb && (
-                <a href={film.imdb} target="_blank" rel="noreferrer" className="text-[10px] font-sans tracking-[0.4em] uppercase text-primary/40 hover:text-primary transition-colors border-b border-primary/20 pb-1">
+              {film.imdb_url && (
+                <a href={film.imdb_url} target="_blank" rel="noreferrer" className="text-[10px] font-sans tracking-[0.4em] uppercase text-primary/40 hover:text-primary transition-colors border-b border-primary/20 pb-1">
                   IMDB →
                 </a>
               )}
@@ -133,7 +135,7 @@ const FilmPageV2 = ({ filmId, onBack, version, toggleVersion }) => {
             <div className="w-3/5 sm:w-1/2 lg:w-full mx-auto lg:mx-0">
               <div className="aspect-[2/3] bg-surface relative overflow-hidden group">
                 <img
-                  src={film.poster}
+                  src={film.poster.local_path}
                   alt={film.title}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
                 />
@@ -144,7 +146,7 @@ const FilmPageV2 = ({ filmId, onBack, version, toggleVersion }) => {
             <div className="space-y-4 md:space-y-6">
               <span className="text-prestige text-accent block">SINOPSIS</span>
               <p className="font-serif italic text-base md:text-xl leading-relaxed text-primary/90 border-l-2 border-accent/30 pl-6 md:pl-8">
-                {film.sinopsis}
+                {film.synopsis}
               </p>
             </div>
           </motion.div>
@@ -160,50 +162,35 @@ const FilmPageV2 = ({ filmId, onBack, version, toggleVersion }) => {
               <h2 className="font-display text-3xl md:text-5xl lg:text-6xl uppercase tracking-tight mb-6 md:mb-8">FICHA TÉCNICA</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-16">
                 <div>
-                  <TechItem label="Dirección" value={film.director} />
-                  <TechItem label="Producción" value={film.produccion} />
-                  <TechItem label="Prod. Ejecutivos" value={film.productoresEjecutivos} />
-                  <TechItem label="Showrunner" value={film.showrunner} />
-                  <TechItem label="Guionistas" value={film.guionistas} />
+                  <TechItem label="Dirección" value={formatArray(film.directors)} />
+                  <TechItem label="Producción" value={formatArray(film.producers)} />
+                  <TechItem label="Prod. Ejecutivos" value={formatArray(film.executive_producers)} />
+                  <TechItem label="Guionistas" value={formatArray(film.screenplay)} />
                 </div>
                 <div>
-                  <TechItem label="Dir. Fotografía" value={film.dirFotografia} />
-                  <TechItem label="Dir. Arte" value={film.dirArte} />
-                  <TechItem label="Música Original" value={film.musicaOriginal} />
-                  <TechItem label="Edición" value={film.edicion} />
-                  <TechItem label="Casting" value={film.casting} />
+                  <TechItem label="Dir. Fotografía" value={formatArray(film.cinematography)} />
+                  <TechItem label="Dir. Arte" value={formatArray(film.art_direction)} />
+                  <TechItem label="Música Original" value={formatArray(film.music_original)} />
+                  <TechItem label="Edición" value={formatArray(film.editing)} />
+                  <TechItem label="Casting" value={formatArray(film.casting_direction)} />
                 </div>
               </div>
             </div>
 
             {/* CAST SECTION */}
-            {film.protagonistas && film.protagonistas.length > 0 && (
+            {film.cast && film.cast.length > 0 && (
               <div className="mt-10 md:mt-20 lg:mt-32">
                 <h2 className="font-display text-3xl md:text-5xl lg:text-6xl uppercase tracking-tight mb-6 md:mb-8">ELENCO</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-                  {film.protagonistas.map((p, i) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+                  {film.cast.map((p, i) => (
                     <div key={i} className="bg-surface/50 p-4 md:p-6 flex justify-between items-end border-l-2 border-accent">
                       <div className="space-y-1">
                         <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-accent block">PROTAGONISTA</span>
-                        <span className="text-xl md:text-2xl font-display uppercase tracking-[0.1em]">{p.nombre}</span>
+                        <span className="text-xl md:text-2xl font-display uppercase tracking-[0.1em]">{p}</span>
                       </div>
-                      <span className="text-[11px] font-sans tracking-[0.1em] uppercase opacity-40 italic shrink-0 ml-2">{p.rol}</span>
                     </div>
                   ))}
                 </div>
-
-                {film.reparto && film.reparto.length > 0 && (
-                  <div className="mt-8 md:mt-12 pt-8 md:pt-12 border-t border-primary/10">
-                    <span className="text-prestige text-primary/40 mb-6 md:mb-8 block">REPARTO SECUNDARIO</span>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                      {film.reparto.map((name, i) => (
-                        <span key={i} className="text-[13px] font-sans font-light text-primary/60 hover:text-primary transition-colors cursor-default">
-                          {name}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             )}
           </motion.div>

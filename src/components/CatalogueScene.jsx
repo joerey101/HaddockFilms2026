@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { filmsData } from '../data/filmsData';
+import { films as filmsData } from '../data/filmsData';
 
-const FILTROS = ['Todos', 'Película', 'Serie', 'Documental'];
+const FILTROS = ['Todos', 'Película', 'Serie'];
 
 const CatalogueScene = ({ filtro, setFiltro, onNavigate }) => {
   const filteredFilms = filtro === 'Todos' 
     ? filmsData 
-    : filmsData.filter(f => f.tipo.includes(filtro));
+    : filmsData.filter(f => {
+        if (filtro === 'Película') return f.type === 'pelicula';
+        if (filtro === 'Serie') return f.type === 'serie';
+        return true;
+      });
 
   return (
     <section id="catalogo" className="w-full bg-background pt-32 pb-64 px-[6vw]">
@@ -28,7 +32,7 @@ const CatalogueScene = ({ filtro, setFiltro, onNavigate }) => {
                   : 'bg-transparent text-primary/40 hover:text-primary border border-primary/10'
               }`}
             >
-              {f === 'Todos' ? 'Todos' : f === 'Película' ? 'Películas' : f === 'Serie' ? 'Series' : 'Documentales'}
+              {f === 'Todos' ? 'Todos' : f === 'Película' ? 'Películas' : 'Series'}
             </button>
           ))}
         </div>
@@ -38,7 +42,7 @@ const CatalogueScene = ({ filtro, setFiltro, onNavigate }) => {
       <motion.div layout className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
         <AnimatePresence mode="popLayout">
           {filteredFilms.map((film, idx) => {
-            const isClickable = film.id === 25;
+            const isClickable = !!film.slug;
             return (
               <motion.div
                 layout
@@ -48,18 +52,18 @@ const CatalogueScene = ({ filtro, setFiltro, onNavigate }) => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.5, delay: idx * 0.02, ease: [0.16, 1, 0.3, 1] }}
                 className={`relative aspect-[2/3] group overflow-hidden bg-surface ${isClickable ? 'cursor-pointer' : 'cursor-default'}`}
-                onClick={() => isClickable && onNavigate && onNavigate(film.id)}
+                onClick={() => isClickable && onNavigate && onNavigate(film.slug)}
               >
                 <img 
-                  src={film.poster} 
+                  src={film.poster.local_path} 
                   alt={film.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 
-                {/* Badge Series/Doc */}
-                {film.tipo !== 'Película' && (
+                {/* Badge Series */}
+                {film.type === 'serie' && (
                   <div className="absolute top-0 left-0 bg-accent text-black text-[8px] font-sans font-bold px-2 py-1 tracking-widest z-10">
-                    {film.tipo.toUpperCase()}
+                    SERIE
                   </div>
                 )}
 

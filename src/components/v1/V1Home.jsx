@@ -5,6 +5,7 @@ import FeaturedFilm from './FeaturedFilm';
 import CatalogueScene from './CatalogueScene';
 import ServiciosSection from './ServiciosSection';
 import LogrosBanner from '../LogrosBanner';
+import { films as filmsData } from '../../data/filmsData';
 
 const V1Home = ({ version, onNavigate }) => {
   const [filtro, setFiltro] = useState('Todos');
@@ -33,38 +34,38 @@ const V1Home = ({ version, onNavigate }) => {
       {/* Main Narrative Sections: High Z-index with Fluid Tension */}
       <div className="relative z-20 bg-background">
 
-        <FeaturedFilm
-          id="moscas"
-          title="El Tiempo de las Moscas"
-          year="2025"
-          director="Mariana Enríquez"
-          image="/assets/Tiempo-Moscas-main.jpg"
-          description="El estreno más reciente de Haddock Films. Un relato que habita los bordes del horror y la literatura argentina contemporánea."
-          layout="left"
-          onClick={() => onNavigate('el-tiempo-de-las-moscas')}
-        />
+        {filmsData.find(f => f.slug === 'el-tiempo-de-las-moscas') && (
+          <FeaturedFilm
+            {...filmsData.find(f => f.slug === 'el-tiempo-de-las-moscas')}
+            image={filmsData.find(f => f.slug === 'el-tiempo-de-las-moscas').stills?.[0]?.local_path || filmsData.find(f => f.slug === 'el-tiempo-de-las-moscas').poster.local_path}
+            director={Array.isArray(filmsData.find(f => f.slug === 'el-tiempo-de-las-moscas').directors) ? filmsData.find(f => f.slug === 'el-tiempo-de-las-moscas').directors[0] : filmsData.find(f => f.slug === 'el-tiempo-de-las-moscas').directors}
+            description={filmsData.find(f => f.slug === 'el-tiempo-de-las-moscas').synopsis}
+            layout="left"
+            onClick={() => onNavigate('el-tiempo-de-las-moscas')}
+          />
+        )}
 
-        <FeaturedFilm
-          id="atrapados"
-          title="Atrapados"
-          year="2025"
-          director="Miguel Cohan"
-          image="/assets/Atrapados-Haddock-Films-1.webp"
-          description="Serie original para Netflix. Ocho presos quedan atrapados en una cárcel inundada y deben sobrevivir juntos, con sus secretos y sus diferencias."
-          layout="right"
-          onClick={() => onNavigate('atrapados')}
-        />
+        {filmsData.find(f => f.slug === 'atrapados') && (
+          <FeaturedFilm
+            {...filmsData.find(f => f.slug === 'atrapados')}
+            image={filmsData.find(f => f.slug === 'atrapados').stills?.[0]?.local_path || filmsData.find(f => f.slug === 'atrapados').poster.local_path}
+            director={Array.isArray(filmsData.find(f => f.slug === 'atrapados').directors) ? filmsData.find(f => f.slug === 'atrapados').directors[0] : filmsData.find(f => f.slug === 'atrapados').directors}
+            description={filmsData.find(f => f.slug === 'atrapados').synopsis}
+            layout="right"
+            onClick={() => onNavigate('atrapados')}
+          />
+        )}
 
-        <FeaturedFilm
-          id="elena"
-          title="Elena Sabe"
-          year="2025"
-          director="Anahí Berneri"
-          image="/assets/ES_ELENA_RGB_VERTICAL_main.jpg"
-          description="Basada en la novela de Claudia Piñeiro. Una madre con Parkinson busca justicia por la muerte de su hija en una Argentina que no da respuestas."
-          layout="left"
-          onClick={() => onNavigate('elena-sabe')}
-        />
+        {filmsData.find(f => f.slug === 'elena-sabe-2023') && (
+          <FeaturedFilm
+            {...filmsData.find(f => f.slug === 'elena-sabe-2023')}
+            image={filmsData.find(f => f.slug === 'elena-sabe-2023').stills?.[0]?.local_path || filmsData.find(f => f.slug === 'elena-sabe-2023').poster.local_path}
+            director={Array.isArray(filmsData.find(f => f.slug === 'elena-sabe-2023').directors) ? filmsData.find(f => f.slug === 'elena-sabe-2023').directors[0] : filmsData.find(f => f.slug === 'elena-sabe-2023').directors}
+            description={filmsData.find(f => f.slug === 'elena-sabe-2023').synopsis}
+            layout="left"
+            onClick={() => onNavigate('elena-sabe-2023')}
+          />
+        )}
 
         {/* Fluid Editorial Narrative Catalogue */}
         <CatalogueScene filtro={filtro} setFiltro={setFiltro} onNavigate={onNavigate} />

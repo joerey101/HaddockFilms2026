@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate, useLocation, Navigate, useParams } from 're
 import V1Home from './components/v1/V1Home';
 import FilmPageV1 from './components/v1/FilmPageV1';
 
-import { filmsData } from './data/filmsData';
+import { films as filmsData } from './data/filmsData';
 
 function App() {
   const [version] = useState('v1'); // Forzado a v1
