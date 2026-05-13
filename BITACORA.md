@@ -80,4 +80,27 @@
 - **Resultado:** El hito se cierra validando a la V1 como el diseño oficial en producción.
 
 ---
-*Fin de la actualización de bitácora — 06/05/2026*
+
+## 💎 HITO FINAL: UNIFICACIÓN Y CURADURÍA (13 de Mayo, 2026)
+
+### 1. Consolidación de Datos y Textos Curados
+**Estado:** **RESUELTO** (Commit `7cf3902`)
+- **Merge Maestro:** Se integraron los textos curados, sinopsis con párrafos, premios (`awards`) y créditos técnicos completos desde el dataset V2 hacia el `filmsData.js` principal.
+- **Preservación:** Se mantuvo la integridad de las entradas manuales (ej: *El Tiempo de las Moscas*) y la estructura de rutas locales.
+
+### 2. Sincronización de Assets (/public/assets)
+**Estado:** **RESUELTO**
+- **Mapeo de Imágenes:** Se corrigió la asignación de imágenes. Los posters ahora usan los archivos verticales y los headers (Hero) usan los archivos horizontales "main" o "hero".
+- **Estandarización:** Se creó el campo explícito `hero` en la data para garantizar que el diseño editorial V1 muestre siempre la imagen de mayor impacto en la cabecera.
+
+### 3. Mejoras de Interfaz (V1)
+**Estado:** **RESUELTO**
+- **Reconocimientos:** Se rediseñó la sección de premios para que se visualice en una sola columna, mejorando drásticamente la legibilidad en listas extensas.
+- **Renderizado Dinámico:** El componente `FilmPageV1.jsx` ahora procesa automáticamente los arrays de párrafos para la sinopsis y campos condicionales como "Basado en".
+
+### 4. Despliegue de Producción
+**Estado:** **DESPLEGADO**
+- **Push & Deploy:** Se sincronizó todo el trabajo con GitHub y se realizó el despliegue final a Vercel. El sitio ya refleja el catálogo curado completo con sus imágenes finales.
+
+---
+*Fin de la migración y consolidación de Haddock Films — 13/05/2026*
