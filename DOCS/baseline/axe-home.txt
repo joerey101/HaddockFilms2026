@@ -1,0 +1,80 @@
+Running axe-core 4.11.4 in chrome-headless
+
+Testing https://haddock-films2026.vercel.app/v1 ... please wait, this may take a minute.
+
+  Violation of "color-contrast" with 46 occurrences!
+    Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds. Correct invalid elements at:
+     - .gap-3.group.cursor-pointer:nth-child(1) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(1) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(2) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(2) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(3) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(3) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(5) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(5) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(6) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(6) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(7) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(7) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(9) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(9) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(10) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(10) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(11) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(11) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(13) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(13) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(14) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(14) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(15) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(15) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(17) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(17) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(18) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(18) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(19) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(19) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(21) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(21) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(22) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(22) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(23) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(23) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(25) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(25) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(26) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(26) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .gap-3.group.cursor-pointer:nth-child(27) > .gap-0\.5.flex-col.flex > .text-\[clamp\(0\.85rem\,1\.1vw\,1\.1rem\)\].group-hover\:italic.transition-all
+     - .gap-3.group.cursor-pointer:nth-child(27) > .gap-0\.5.flex-col.flex > .tracking-\[0\.15em\].opacity-60.text-secondary
+     - .tracking-\[0\.3em\]
+     - .hover\:text-white:nth-child(1)
+     - .hover\:text-white:nth-child(2)
+     - .hover\:text-white:nth-child(3)
+    For details, see: https://dequeuniversity.com/rules/axe/4.11/color-contrast
+
+  Violation of "region" with 15 occurrences!
+    Ensure all page content is contained by landmarks. Correct invalid elements at:
+     - .flex-1.justify-center.text-center:nth-child(1)
+     - .flex-1.justify-center.text-center:nth-child(3)
+     - .flex-1.justify-center.text-center:nth-child(5)
+     - .flex-1.justify-center.text-center:nth-child(7)
+     - .py-\[clamp\(2rem\,4vw\,8rem\)\]:nth-child(1) > .md\:hidden.gap-4.flex-col > .gap-2.flex-col.flex:nth-child(1)
+     - .py-\[clamp\(2rem\,4vw\,8rem\)\]:nth-child(1) > .md\:hidden.gap-4.flex-col > .aspect-\[16\/10\].overflow-hidden.cursor-pointer
+     - .py-\[clamp\(2rem\,4vw\,8rem\)\]:nth-child(1) > .md\:hidden.gap-4.flex-col > .gap-2.flex-col.flex:nth-child(3) > .text-\[clamp\(0\.9rem\,1vw\,1\.1rem\)\].max-w-sm.leading-relaxed
+     - .py-\[clamp\(2rem\,4vw\,8rem\)\]:nth-child(2) > .md\:hidden.gap-4.flex-col > .gap-2.flex-col.flex:nth-child(1)
+     - .py-\[clamp\(2rem\,4vw\,8rem\)\]:nth-child(2) > .md\:hidden.gap-4.flex-col > .aspect-\[16\/10\].overflow-hidden.cursor-pointer
+     - .py-\[clamp\(2rem\,4vw\,8rem\)\]:nth-child(2) > .md\:hidden.gap-4.flex-col > .gap-2.flex-col.flex:nth-child(3) > .text-\[clamp\(0\.9rem\,1vw\,1\.1rem\)\].max-w-sm.leading-relaxed
+     - .py-\[clamp\(2rem\,4vw\,8rem\)\]:nth-child(3) > .md\:hidden.gap-4.flex-col > .gap-2.flex-col.flex:nth-child(1)
+     - .py-\[clamp\(2rem\,4vw\,8rem\)\]:nth-child(3) > .md\:hidden.gap-4.flex-col > .aspect-\[16\/10\].overflow-hidden.cursor-pointer
+     - .py-\[clamp\(2rem\,4vw\,8rem\)\]:nth-child(3) > .md\:hidden.gap-4.flex-col > .gap-2.flex-col.flex:nth-child(3) > .text-\[clamp\(0\.9rem\,1vw\,1\.1rem\)\].max-w-sm.leading-relaxed
+     - .items-end > .gap-3.flex-col.flex
+     - .grid-cols-2
+    For details, see: https://dequeuniversity.com/rules/axe/4.11/region
+
+61 Accessibility issues detected.
+Testing complete of 1 pages
+
+Please note that only 20% to 50% of all accessibility issues can automatically be detected. 
+Manual testing is always required. For more information see:
+https://dequeuniversity.com/class/testing
+

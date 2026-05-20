@@ -25,3 +25,6 @@ dist-ssr
 
 # Excluir carpeta de trabajo y basura local
 EXTRAS/
+.next/
+.next
+tsconfig.tsbuildinfo

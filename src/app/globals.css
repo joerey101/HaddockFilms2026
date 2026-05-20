@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  /* Default V2 */
+  --bg: #0D0D0D;
+  --surface: #141414;
+  --surface-alt: #1C1C1C;
+  --text: #F0EDE8;
+  --text-secondary: rgba(240, 237, 232, 0.45);
+  --accent: #C8892A;
+  --font-head: "Bebas Neue", sans-serif;
+}
+
+[data-version="v1"] {
+  --bg: #f9f9f9;
+  --surface: #f3f3f3;
+  --surface-alt: #ffffff;
+  --text: #1A1A1A;
+  --text-secondary: rgba(26, 26, 26, 0.6);
+  --accent: #955F17;
+  --font-head: "Playfair Display", serif;
+}
+
+@theme {
+  /* Colors */
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-primary: var(--text);
+  --color-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-bg-dark: #1A1A1A;
+  --color-fg-on-dark: #F0EDE8;
+  --color-fg-on-dark-muted: rgba(240, 237, 232, 0.60);
+  --color-accent-hover: #B07A24;
+
+  /* Typography */
+  --font-display: var(--font-head);
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  /* Transitions */
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Scale */
+  --scale-editorial: 1.02;
+}
+
+/* Base Styles */
+@layer base {
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    font-family: var(--font-sans);
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  /* Reset default styles */
+  * {
+    border-color: rgba(240, 237, 232, 0.1);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: normal;
+  }
+}
+
+/* Global Utilities */
+@layer utilities {
+  /* V2 Utilities */
+  .text-huge {
+    font-size: 14.5vw;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-prestige {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+  }
+
+  .film-grain {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+  }
+
+  /* V1 Utilities (Editorial) */
+  .cinematic-container { @apply w-full px-[6vw]; }
+  
+  .text-display-lg {
+    @apply font-serif text-[clamp(4rem,10vw,16rem)] leading-[0.85] tracking-[-0.03em];
+  }
+
+  .text-display-md {
+    @apply font-serif text-[clamp(3rem,8vw,10rem)] leading-[0.85] tracking-[-0.02em];
+  }
+
+  .text-display-xl {
+    @apply font-serif text-[clamp(5rem,14vw,22rem)] leading-[0.8] tracking-[-0.04em];
+  }
+
+  .text-prestige-label {
+    @apply text-[clamp(10px,0.75vw,14px)] uppercase tracking-[0.4em] font-sans font-bold opacity-60;
+  }
+
+  .text-editorial-body {
+    @apply font-sans font-light text-[clamp(1rem,1.2vw,1.25rem)] leading-[1.8] opacity-70;
+  }
+
+  .py-editorial { @apply py-[clamp(4rem,8vw,12rem)]; }
+  .mt-editorial { @apply mt-[clamp(4rem,8vw,12rem)]; }
+
+  .grid-20 { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); }
+}
