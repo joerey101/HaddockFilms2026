@@ -36,8 +36,9 @@
 
   /* Typography */
   --font-display: var(--font-head);
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-serif: var(--font-editorial), serif;
+  --font-sans: var(--font-sans), sans-serif;
+  --font-editorial: var(--font-editorial), serif;
 
   /* Transitions */
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
