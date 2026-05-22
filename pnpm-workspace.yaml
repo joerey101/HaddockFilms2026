@@ -1,0 +1,9 @@
+packages:
+  - '.'
+
+allowBuilds:
+  "@swc/core": true
+  "esbuild": true
+  "sharp": true
+  "tailwindcss": true
+  "unrs-resolver": true
