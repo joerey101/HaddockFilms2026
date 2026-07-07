@@ -114,7 +114,7 @@ const HeroVideo = () => {
           className="mb-4 md:mb-6"
         >
           <Label className="text-fg-on-dark opacity-70 tracking-[0.4em] uppercase">
-            Buenos Aires · Argentina · 2000 · 2026
+            Buenos Aires – Argentina
           </Label>
         </motion.div>
 
@@ -127,8 +127,7 @@ const HeroVideo = () => {
               font="sans"
               className="text-fg-on-dark text-[clamp(2rem,3.9vw,56px)] leading-[1.0] tracking-[-0.03em] font-bold normal-case text-center"
             >
-              20 años de cine argentino.<br />
-              Producciones que trascienden fronteras.
+              Producciones que trascienden fronteras
             </Heading>
           </motion.div>
         </div>

@@ -51,13 +51,7 @@ const Navbar = ({ irACatalogo }: NavbarProps) => {
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex gap-12 text-prestige-label pointer-events-auto text-white">
           <button onClick={() => handleNavClick('Todos')} className="hover:opacity-40 transition-opacity cursor-pointer text-[10px] font-sans tracking-[0.4em] bg-transparent border-none text-white">
-            PELÍCULAS
-          </button>
-          <button onClick={() => handleNavClick('Serie')} className="hover:opacity-40 transition-opacity cursor-pointer text-[10px] font-sans tracking-[0.4em] bg-transparent border-none text-white">
-            SERIES
-          </button>
-          <button onClick={() => handleNavClick('Documental')} className="hover:opacity-40 transition-opacity cursor-pointer text-[10px] font-sans tracking-[0.4em] bg-transparent border-none text-white">
-            DOCUMENTALES
+            PRODUCCIONES
           </button>
           <button onClick={handleServiciosClick} className="hover:opacity-40 transition-opacity cursor-pointer text-[10px] font-sans tracking-[0.4em] bg-transparent border-none text-white">
             SERVICIOS
@@ -100,9 +94,7 @@ const Navbar = ({ irACatalogo }: NavbarProps) => {
             className="fixed top-[60px] left-0 w-full z-[59] bg-primary/95 backdrop-blur-xl px-[6vw] pb-8 pt-6 flex flex-col gap-5"
           >
             {[
-              { label: 'PELÍCULAS', action: () => handleNavClick('Todos') },
-              { label: 'SERIES', action: () => handleNavClick('Serie') },
-              { label: 'DOCUMENTALES', action: () => handleNavClick('Documental') },
+              { label: 'PRODUCCIONES', action: () => handleNavClick('Todos') },
               { label: 'SERVICIOS', action: handleServiciosClick },
             ].map(({ label, action }, i) => (
               <motion.button

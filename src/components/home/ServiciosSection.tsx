@@ -11,51 +11,21 @@ import { Link } from '@/components/primitives/Link';
 const serviciosData = [
   { 
     id: "01", 
-    title: "Producción de Largometrajes", 
-    subtitle: "Ficción y Documentales",
-    desc: "Desarrollamos y producimos largometrajes de ficción y documental con estándares internacionales. Más de 25 producciones con presencia en festivales y distribución en más de 40 países."
-  },
-  { 
-    id: "02", 
-    title: "Formación y Capacitación", 
-    subtitle: "Talleres y Programas",
-    desc: "Talleres y programas de formación para realizadores, guionistas and equipos técnicos. Transferencia directa del know-how de producciones de alto impacto narrativo y comercial."
-  },
-  { 
-    id: "03", 
-    title: "Servicios de Producción Internacional", 
-    subtitle: "Argentina · España",
-    desc: "Facilitamos rodajes internacionales en Argentina y España: locaciones, equipos técnicos, casting y coordinación logística integral para proyectos de cualquier escala."
-  },
-  { 
-    id: "04", 
-    title: "Realización Integral de Proyectos", 
-    subtitle: "Del Concepto a la Pantalla",
-    desc: "Desde el desarrollo hasta la entrega final. Producción, postproducción y estrategia de distribución gestionados por un solo equipo con visión creativa y ejecutiva unificada."
-  },
-  { 
-    id: "05", 
-    title: "Diseño de Proyectos Audiovisuales", 
+    title: "Diseño de Proyectos", 
     subtitle: "Desarrollo Creativo",
     desc: "Estructuración creativa y estratégica de proyectos: biblia, tratamiento, arquitectura narrativa y plan de financiamiento para cine, televisión y plataformas digitales."
   },
   { 
-    id: "06", 
-    title: "Producción de Contenidos Web", 
-    subtitle: "Digital · Streaming · Redes",
-    desc: "Contenido audiovisual nativo para plataformas digitales, YouTube, redes sociales y OTT. Branded content con identidad de marca y calidad de producción cinematográfica."
+    id: "02", 
+    title: "Servicio de Producción", 
+    subtitle: "Ficción y Documentales",
+    desc: "Facilitamos rodajes y producción integral: locaciones, equipos técnicos, casting y coordinación logística para proyectos de cualquier escala."
   },
   { 
-    id: "07", 
-    title: "Producción de Contenidos Televisivos", 
-    subtitle: "Series · Unitarios · Formatos",
-    desc: "Series, unitarios y formatos para cadenas nacionales e internacionales. Vasta experiencia en el ecosistema televisivo argentino y europeo, con track record en co-producciones."
-  },
-  { 
-    id: "08", 
-    title: "Producción Publicitaria", 
-    subtitle: "Cine Publicitario · Branded Content",
-    desc: "Spots, films publicitarios y contenido de marca con el rigor estético de la ficción cinematográfica. Para marcas que buscan diferenciarse con producción audiovisual de alto nivel."
+    id: "03", 
+    title: "Servicio de Postproducción", 
+    subtitle: "Edición y Finalización",
+    desc: "Desde el montaje hasta la entrega final. Postproducción gestionada por un equipo con visión creativa y ejecutiva unificada."
   }
 ];
 

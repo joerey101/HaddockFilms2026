@@ -11,27 +11,27 @@ const LogrosBanner = () => {
 
   const achievements = [
     {
-      number: "25+",
+      number: "20+",
       title: "AÑOS",
       subtitle: "De trayectoria cinematográfica",
       accent: false,
     },
     {
-      number: "40+",
+      number: "190+",
       title: "PAÍSES",
       subtitle: "De distribución global",
       accent: false,
     },
     {
-      number: "Oscar®",
+      number: "Oscar",
       title: "GANADORA",
       subtitle: "Mejor Película Extranjera",
       accent: true,
     },
     {
       number: "Festivales",
-      title: "CLASE A",
-      subtitle: "Cannes · Berlín · Sundance · San Sebastián",
+      title: "",
+      subtitle: "Cannes, Venecia, Berlín, Mar del Plata, Varsovia, Locarno",
       accent: false,
     },
   ];

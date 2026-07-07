@@ -25,13 +25,15 @@ const CatalogueScene = () => {
   });
 
   const getFilmMeta = (f: Film) => {
-    const typeLabel = f.type === 'serie' ? 'SERIE' : f.type === 'documental' ? 'DOCUMENTAL' : 'PELÍCULA';
-    const genreLabel = f.genre && f.genre[0] ? f.genre[0].toUpperCase() : '';
+    let typeLabel = 'Película';
+    if (f.type === 'serie') typeLabel = 'Serie';
     
-    if (genreLabel) {
-      return `${typeLabel} · ${genreLabel}`;
+    let genre = 'Ficción';
+    if (f.type === 'documental' || (f.genre && f.genre.some(g => g.toLowerCase().includes('documental')))) {
+      genre = 'Documental';
     }
-    return typeLabel;
+    
+    return `${typeLabel} - ${genre}`;
   };
 
   const renderCardTitle = (title: string) => {
@@ -111,21 +113,16 @@ const CatalogueScene = () => {
                   </div>
 
                   {/* Card Info */}
-                  <div className="flex flex-col gap-2 flex-grow">
+                  <div className="flex flex-col gap-2 flex-grow mt-2">
                     {/* Media Type & Year */}
-                    <div className="flex items-center justify-between text-xs text-primary/45 uppercase tracking-[0.15em] font-sans font-medium">
-                      <Label className="text-primary/45 uppercase tracking-[0.15em] font-sans font-medium text-[10px]">
+                    <div className="flex items-center justify-between text-xs text-primary/45 tracking-[0.05em] font-sans font-medium">
+                      <Label className="text-primary/80 uppercase tracking-[0.1em] font-sans font-medium text-[10px]">
                         {getFilmMeta(film)}
                       </Label>
-                      <Label className="text-primary/45 font-sans font-medium text-[10px]">
+                      <Label className="text-primary/80 font-sans font-medium text-[10px]">
                         {film.year}
                       </Label>
                     </div>
-
-                    {/* Film Title */}
-                    <Heading as="h3" size="h3" font="serif" className="text-primary group-hover:text-accent transition-colors duration-400 group-hover:italic leading-snug">
-                      {renderCardTitle(film.title)}
-                    </Heading>
                   </div>
                 </Link>
               </motion.div>
